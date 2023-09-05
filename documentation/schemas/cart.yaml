@@ -1,0 +1,10 @@
+type: object
+description: A cart
+required:
+  - status
+properties:
+  status:
+    type: string
+    description: |
+      Status of the cart
+    example: Signed-out

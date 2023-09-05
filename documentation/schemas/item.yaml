@@ -1,0 +1,28 @@
+type: object
+description: An item
+required:
+  - name
+properties:
+  name:
+    type: string
+    minLength: 2
+    maxLength: 45
+    description: |
+      Name of the item
+    example: Generator
+  status:
+    type: string
+    description: |
+      An item's status: Broken, Signed-out, or Available
+    example: Stored
+  quantity:
+    type: integer
+    minimum: 0
+    description: |
+      The amount of items of that type
+    example: 4
+  image:
+    type: string # according to OpenAPI: this includes dates and files
+    description: |
+      An image of the item
+    example: mouse.jpg

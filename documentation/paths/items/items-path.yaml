@@ -1,0 +1,32 @@
+description: All the items
+get:
+  summary: List all items
+  responses:
+    "200":
+      description: All the items
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/item"
+    "400":
+      description: |
+        Bad Request.
+post:
+  summary: Add an item
+  requestBody:
+    description: Item's data
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/item"
+  responses:
+    "201":
+      description: Added an item
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/item"
+    "400":
+      description: Bad Request. The message in the body of the Request is either missing or malformed.

@@ -1,0 +1,27 @@
+type: object
+description: A location in a room
+required:
+  - aisle
+  - row
+  - column
+properties:
+  aisle:
+    type: string
+    description: |
+      A letter that represents an aisle
+    example: A
+  row:
+    type: integer
+    description: |
+      A number that represents a row
+    example: 17
+  column:
+    type: integer
+    description: |
+      A number that represents a column
+    example: 2
+  description:
+    type: string
+    description: |
+      TBD
+    example: TBD

@@ -1,0 +1,45 @@
+openapi: "3.1.0"
+info:
+  title: Inventory System API
+  version: "1.0"
+components:
+  schemas:
+    item:
+      $ref: './schemas/item.yaml'
+
+    cart:
+      $ref: './schemas/cart.yaml'
+
+    location:
+      $ref: './schemas/location.yaml'
+
+    checkout:
+      $ref: './schemas/checkout.yaml'
+
+paths:
+  /items:
+    $ref: './paths/items/items-path.yaml'
+  
+  /items/{item}:
+    $ref: './paths/items/id/item-id-path.yaml'
+  
+  /items/{id}/quantity:
+    $ref: './paths/items/id/quantity/item-quantity-path.yaml'
+
+  /locations:
+    $ref: './paths/locations/locations-path.yaml'
+  
+  /carts:
+    $ref: './paths/carts/carts-path.yaml'
+  
+  /carts/{id}:
+    $ref: './paths/carts/id/cart-id-path.yaml'
+  
+  /checkouts:
+    $ref: './paths/checkouts/checkouts-path.yaml'
+  
+  /checkouts/{id}:
+    $ref: './paths/checkouts/id/checkout-id-path.yaml'
+
+  /checkouts/{id}/signIn:
+    $ref: './paths/checkouts/id/signIn/checkout-signIn-path.yaml'

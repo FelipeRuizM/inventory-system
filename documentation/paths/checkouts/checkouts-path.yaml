@@ -1,0 +1,32 @@
+description: All the checkouts
+get:
+  summary: List all checkouts
+  responses:
+    "200":
+      description: All the checkouts
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/checkout"
+    "400":
+      description: |
+        Bad Request.
+post:
+  summary: Add a checkout
+  requestBody:
+    description: Checkout's data
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/checkout"
+  responses:
+    "201":
+      description: Added a checkout
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/checkout"
+    "400":
+      description: Bad Request. The message in the body of the Request is either missing or malformed.

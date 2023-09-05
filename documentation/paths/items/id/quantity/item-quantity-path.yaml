@@ -1,0 +1,34 @@
+description: Update the quantity of an specific item
+patch:
+  summary: Update item quantity
+  description: >
+    This endpoint is used to update the quantity of a specific item identified by its `id`.
+    The quantity can be increased or decreased based on the provided operator.
+  parameters:
+    - name: id
+      in: path
+      description: The unique identifier of the item to update its quantity.
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: The update quantity details.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            operator:
+              type: string
+              description: The operator to indicate the operation (e.g., '+' for addition, '-' for subtraction).
+              example: '+'
+            quantity:
+              type: integer
+              description: The quantity value to be added or subtracted.
+              example: 5
+  responses:
+    '204':
+      description: The update was successful, and no content is returned.
+    '400':
+      description: If there was an error processing the request or the provided data is invalid.

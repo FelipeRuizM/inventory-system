@@ -1,0 +1,58 @@
+description: All the carts
+get:
+  summary: List all carts
+  responses:
+    "200":
+      description: All the carts
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              example:
+                id: 1
+                status: Available
+                items: [{
+                  id: 2,
+                  name: HDMI cable,
+                  status: Prepared,
+                  quantity: 10,
+                  image: hdmi_cable.jpg,
+                  FK_location: 6,
+                  item_cart: {
+                    quantity: 11,
+                    itemId: 2,
+                    cartId: 1
+                  }
+                }]
+                lab: {
+                  id: 5,
+                  section: X01A,
+                  FK_course: 3,
+                  course: {
+                    id: 3,
+                    name: ICS-221
+                  }
+                }
+                  
+    "400":
+      description: |
+        Bad Request.
+post:
+  summary: Add a cart
+  requestBody:
+    description: Cart's data
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/cart"
+  responses:
+    "201":
+      description: Added a cart
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/cart"
+    "400":
+      description: Bad Request. The message in the body of the Request is either missing or malformed.
